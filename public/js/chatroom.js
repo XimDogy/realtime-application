@@ -17,7 +17,7 @@
     let messageList = document.querySelector('#message-list')
 
 
-    messageBtn.addEventListener('click', e => {
+    messageBtn.addEventListener('keyup', e => {
         console.log(message.value)
         socket.emit('new_message', {message: message.value})
         message.value = ''
