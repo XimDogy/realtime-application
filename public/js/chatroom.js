@@ -24,9 +24,14 @@
     })
 
     message.addEventListener('keyup', e => {
-        console.log(message.value)
-        socket.emit('new_message', {message: message.value})
-        message.value = ''
+
+        if (e.keyCode === 13) {
+            // Cancel the default action, if needed
+            e.preventDefault();
+            // Trigger the button element with a click
+            messageBtn.click();
+          }
+        
     })
 
     socket.on('receive_message', data => {
